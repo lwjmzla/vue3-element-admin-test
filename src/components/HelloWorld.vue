@@ -1,6 +1,6 @@
 <script setup lang="ts">
 //import { ref } from 'vue'
-
+//import { Delete, Edit, Search, Share, Upload } from '@element-plus/icons-vue'
 defineProps<{ msg: string }>()
 
 const count = ref(0)
@@ -29,6 +29,18 @@ const count = ref(0)
     in your IDE for a better DX
   </p>
   <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
+  <div>
+    <el-button type="success">
+      Success
+      <el-icon color="#409EFC" class="no-inherit">
+        <i-ep-share />
+      </el-icon>
+    </el-button>
+    <el-button type="info"><i-ep-InfoFilled />Info</el-button>
+    <el-button type="warning"><i-ep-WarningFilled />Warning</el-button>
+    <el-button type="danger"><i-ep-WarnTriangleFilled />Danger</el-button>
+    <el-button type="info"><svg-icon icon-class="vue"/>SVG 本地图标</el-button>
+  </div>
 </template>
 
 <style scoped>
