@@ -31,7 +31,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
         dts: path.resolve(pathSrc, "types", "auto-imports.d.ts"), // !自动生成并导入vue等函数TS类型声明文件路径
         resolvers: [
           // 自动导入 Element Plus 相关函数，如：ElMessage, ElMessageBox... (带样式)
-          ElementPlusResolver(),
+          ElementPlusResolver({ importStyle: 'sass' }), // !修改主题变量样式
           // 自动导入图标组件
           IconsResolver({}),
         ],
@@ -43,7 +43,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
         // dirs: ['src/components'],
         resolvers: [
           // 自动导入 Element Plus 组件
-          ElementPlusResolver(),
+          ElementPlusResolver({ importStyle: 'sass' }), // !修改主题变量样式
           // 自动注册图标组件
           IconsResolver({
             enabledCollections: ["ep"] // element-plus图标库，其他图标库 https://icon-sets.iconify.design/
@@ -61,5 +61,15 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
         symbolId: 'icon-[dir]-[name]',
       }),
     ],
+    css: {
+      // CSS 预处理器
+      preprocessorOptions: {
+        //define global scss variable
+        scss: {
+          javascriptEnabled: true,
+          additionalData: `@use "@/styles/variables.scss" as *;`
+        }
+      }
+    }
   }
 })

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import variables from "@/styles/variables.module.scss";
+console.log(variables) 
 //import { ref } from 'vue'
 //import { Delete, Edit, Search, Share, Upload } from '@element-plus/icons-vue'
 defineProps<{ msg: string }>()
@@ -30,6 +32,7 @@ const count = ref(0)
   </p>
   <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
   <div>
+    <el-button type="primary">Info</el-button>
     <el-button type="success">
       Success
       <el-icon color="#409EFC" class="no-inherit">
@@ -39,12 +42,13 @@ const count = ref(0)
     <el-button type="info"><i-ep-InfoFilled />Info</el-button>
     <el-button type="warning"><i-ep-WarningFilled />Warning</el-button>
     <el-button type="danger"><i-ep-WarnTriangleFilled />Danger</el-button>
-    <el-button type="info"><svg-icon icon-class="vue"/>SVG 本地图标</el-button>
+    <el-button type="info"><svg-icon icon-class="vue" color="red"/>SVG 本地图标</el-button>
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .read-the-docs {
   color: #888;
+  background-color: $bg-color;
 }
 </style>

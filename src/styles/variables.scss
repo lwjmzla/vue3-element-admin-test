@@ -1,0 +1,19 @@
+$bg-color:#242424;
+
+// !这种控制不好，要每个都控制
+// :root {
+//   --el-color-primary: #ff6700;
+//   --el-color-success: #3dc54b;
+// }
+
+// !采用这个修改主题样式
+// @forward "element-plus/theme-chalk/src/common/var.scss" with (
+//   $colors: (
+//     "primary": (
+//       "base": #ff6700,
+//     ),
+//     "success": (
+//       "base": #3dc54b,
+//     ),
+//   )
+// );
