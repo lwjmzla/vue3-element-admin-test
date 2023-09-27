@@ -70,6 +70,25 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
           additionalData: `@use "@/styles/variables.scss" as *;`
         }
       }
-    }
+    },
+    build: {
+      rollupOptions: {
+        // manualChunks: { // !@deprecated — Use the "manualChunks" output option instead.应该使用下面的'output.manualChunks'
+        //   vue: ['vue'] // !可以多个['vue', 'lodash']
+        // }
+        // manualChunks(id) { // !如果有多个node_modules的依赖需要单独抽
+        //   //console.log(id)
+        //   if (id.includes('node_modules')) {
+        //     return 'vendor' // !包名
+        //   }
+        // }
+        output: {
+          manualChunks: {
+            vue: ['vue'] // !可以多个['vue', 'lodash']
+          }
+        }
+      }
+      
+    },
   }
 })
