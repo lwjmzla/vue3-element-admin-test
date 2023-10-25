@@ -79,7 +79,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
         // manualChunks(id) { // !如果有多个node_modules的依赖需要单独抽
         //   //console.log(id)
         //   if (id.includes('node_modules')) {
-        //     return 'vendor' // !包名
+        //     return 'vendor' // !包名 // !node_modules下的依赖包都整合到vendor.js
         //   }
         // }
         output: {
@@ -88,7 +88,6 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
           }
         }
       }
-      
     },
   }
 })
