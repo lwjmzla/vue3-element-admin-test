@@ -1,9 +1,6 @@
-
 <template>
   <h1>{{ msg }}</h1>
-  <p>
-    {{ counterStore.count }} : {{ counterStore.double }}
-  </p>
+  <p>{{ counterStore.count }} : {{ counterStore.double }}</p>
 
   <div class="card">
     <button type="button" @click="count++">count is {{ count }}</button>
@@ -36,20 +33,22 @@
     <el-button type="info"><i-ep-InfoFilled />Info</el-button>
     <el-button type="warning"><i-ep-WarningFilled />Warning</el-button>
     <el-button type="danger"><i-ep-WarnTriangleFilled />Danger</el-button>
-    <el-button type="info"><svg-icon icon-class="vue" color="red"/>SVG 本地图标</el-button>
+    <el-button type="info"
+      ><svg-icon icon-class="vue" color="red" />SVG 本地图标</el-button
+    >
   </div>
 </template>
 
 <script setup lang="ts">
 import variables from "@/styles/variables.module.scss";
-console.log(variables) 
-import {useCounterStore} from '@/store/counter'
-const counterStore = useCounterStore()
+console.log(variables);
+import { useCounterStore } from "@/store/counter";
+const counterStore = useCounterStore();
 //import { ref } from 'vue'
 //import { Delete, Edit, Search, Share, Upload } from '@element-plus/icons-vue'
-defineProps<{ msg: string }>()
+defineProps<{ msg: string }>();
 
-const count = ref(0)
+const count = ref(0);
 </script>
 
 <style lang="scss" scoped>

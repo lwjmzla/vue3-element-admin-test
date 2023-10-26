@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "build:prod": "vite build --mode production && vue-tsc --noEmit",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint:eslint": "eslint \"src/**/*.{vue,ts,js}\" --fix"
   },
   "dependencies": {
     "element-plus": "^2.3.12",
@@ -17,7 +18,11 @@
   "devDependencies": {
     "@iconify-json/ep": "^1.1.12",
     "@types/node": "^20.5.7",
+    "@typescript-eslint/eslint-plugin": "^6.9.0",
+    "@typescript-eslint/parser": "^6.9.0",
     "@vitejs/plugin-vue": "^4.2.3",
+    "eslint": "^8.52.0",
+    "eslint-plugin-vue": "^9.18.0",
     "fast-glob": "3.2.11",
     "sass": "^1.67.0",
     "typescript": "^5.0.2",
@@ -26,6 +31,9 @@
     "unplugin-vue-components": "^0.25.1",
     "vite": "^4.4.5",
     "vite-plugin-svg-icons": "2.0.1",
-    "vue-tsc": "^1.8.5"
+    "vue-tsc": "^1.8.5",
+    "prettier": "^2.8.8",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1"
   }
 }

@@ -1,4 +1,3 @@
-
 <template>
   <div>
     <a href="https://vitejs.dev" target="_blank">
@@ -9,16 +8,35 @@
     </a>
   </div>
   <el-button type="primary" @click="counterStore.increment">increase</el-button>
-  <p>
-    {{ counterStore.count }} : {{ counterStore.double }}
-  </p>
+  <el-button type="primary" @click="resetSync">同步重置</el-button>
+  <el-button type="primary" @click="resetAsync">异步重置</el-button>
+  <p>{{ counterStore.count }} : {{ counterStore.double }}</p>
   <HelloWorld msg="Vite + Vue" />
 </template>
 
 <script setup lang="ts">
 //import HelloWorld from '@/components/HelloWorld.vue'
-import {useCounterStore} from '@/store/counter'
-const counterStore = useCounterStore()
+import { useCounterStore } from "@/store/counter";
+const counterStore = useCounterStore();
+
+const resetSync = () => {
+  counterStore.$patch({
+    count: 0,
+  });
+};
+
+const resetAsync = () => {
+  counterStore.$patch((state) => {
+    setTimeout(() => {
+      state.count = 0;
+    }, 1000);
+  });
+};
+
+counterStore.$subscribe(() => {
+  console.log(counterStore.count);
+  console.log(counterStore.double);
+});
 </script>
 
 <style scoped>
