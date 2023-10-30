@@ -13,7 +13,7 @@
   <p>{{ counterStore.count }} : {{ counterStore.double }}</p>
   <HelloWorld msg="Vite + Vue" />
 
-  <el-config-provider size="default">
+  <el-config-provider :locale="zhCn" size="default">
     <router-view />
   </el-config-provider>
 </template>
@@ -21,6 +21,7 @@
 <script setup lang="ts">
 //import HelloWorld from '@/components/HelloWorld.vue'
 import { useCounterStore } from "@/store/counter";
+import zhCn from "element-plus/es/locale/lang/zh-cn";
 const counterStore = useCounterStore();
 
 const resetSync = () => {
