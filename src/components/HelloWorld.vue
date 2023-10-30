@@ -33,9 +33,9 @@
     <el-button type="info"><i-ep-InfoFilled />Info</el-button>
     <el-button type="warning"><i-ep-WarningFilled />Warning</el-button>
     <el-button type="danger"><i-ep-WarnTriangleFilled />Danger</el-button>
-    <el-button type="info"
-      ><svg-icon icon-class="vue" color="red" />SVG 本地图标</el-button
-    >
+    <el-button type="info">
+      <svg-icon icon-class="vue" color="red" />SVG 本地图标
+    </el-button>
   </div>
 </template>
 
@@ -43,10 +43,26 @@
 import variables from "@/styles/variables.module.scss";
 console.log(variables);
 import { useCounterStore } from "@/store/counter";
+import { getCaptchaApi } from "@/api/index";
 const counterStore = useCounterStore();
 //import { ref } from 'vue'
 //import { Delete, Edit, Search, Share, Upload } from '@element-plus/icons-vue'
 defineProps<{ msg: string }>();
+console.log(import.meta.env.VITE_APP_BASE_API);
+
+/**
+ * 获取验证码
+ */
+function getCaptcha() {
+  getCaptchaApi().then(({ data }) => {
+    const { verifyCodeBase64, verifyCodeKey } = data;
+    console.log(verifyCodeBase64, verifyCodeKey);
+  });
+}
+
+onMounted(() => {
+  getCaptcha();
+});
 
 const count = ref(0);
 </script>
