@@ -12,6 +12,10 @@
   <el-button type="primary" @click="resetAsync">异步重置</el-button>
   <p>{{ counterStore.count }} : {{ counterStore.double }}</p>
   <HelloWorld msg="Vite + Vue" />
+
+  <el-config-provider size="default">
+    <router-view />
+  </el-config-provider>
 </template>
 
 <script setup lang="ts">
